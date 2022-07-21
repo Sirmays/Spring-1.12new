@@ -1,0 +1,43 @@
+<div>
+    <h2>Регистрация</h2>
+    <li class="nav-item" ng-show="!isUserLoggedIn()">
+        <form class="align-middle" ng-submit="tryToAuth()">
+            <div class="input-group input-group-sm" style="padding: 4px;">
+                <input id="navLoginField" class="form-control" ng-model="user.username" type="text"
+                       aria-describedby="inputGroup-sizing-sm" style="margin-left: 10px;">
+
+                <input id="navPasswordField" class="form-control" ng-model="user.password" type="password"
+                       aria-describedby="inputGroup-sizing-sm" style="margin-left: 10px;">
+
+                <button id="navLoginSubmit" class="btn btn-outline-warning btn-sm"
+                        style="margin-left: 10px;" type="submit">Войти
+                </button>
+            </div>
+        </form>
+    </li>
+    <li class="nav-item" ng-show="isUserLoggedIn()" style="padding: 4px;">
+        <button class="btn btn-outline-secondary btn-sm" ng-click="tryToLogout()">Выйти</button>
+    </li>
+
+    <li class="nav-item" ng-show="!isUserLoggedIn()">
+        <h3>Создание нового пользователя</h3>
+        <form novalidate ng-submit="createNewUser()">
+            <div class="mb-3">
+                <label class="form-label">Имя</label>
+                <input type="text" class="form-control" placeholder="Имя" ng-model="new_user.username">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Пароль</label>
+                <input type="text" class="form-control" placeholder="придумайте пароль" ng-model="new_user.password">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">e-mail</label>
+                <input type="text" class="form-control" placeholder="Ваш e-mail" ng-model="new_user.email">
+            </div>
+
+
+            <p></p>
+            <button type="submit" class="btn btn-primary">Создать</button>
+        </form>
+    </li>
+</div>
